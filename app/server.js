@@ -2,12 +2,12 @@
  * importing our modules
  */
 
-import express from 'express';
-import path from 'path';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import passport from 'passport';
-import { config } from 'dotenv';
+import express from "express";
+import path from "path";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import passport from "passport";
+import { config } from "dotenv";
 
 /**
  * import DotEnv nicely
@@ -30,8 +30,8 @@ const db = process.env.DB_URL;
 // Connect to MongoDB
 mongoose
   .connect(db, { useNewUrlParser: true })
-  .then(() => console.log('Mongodb successfully connected'))
-  .catch((err) => console.log(err));
+  .then(() => console.log("Mongodb successfully connected"))
+  .catch(err => console.log(err));
 
 /**
  * Passport config nicely
@@ -44,15 +44,15 @@ mongoose
 // add post route
 // app.use('/api/', posts)
 // serve our images
-app.use('/api/uploads', express.static('uploads'));
+app.use("/api/uploads", express.static("uploads"));
 /**
  * serve static assets in production
  */
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static('client/build'));
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 
