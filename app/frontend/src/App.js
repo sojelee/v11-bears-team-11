@@ -1,11 +1,9 @@
 import React from 'react'
 import Layout from './components/layout/Layout';
-import Channel from './components/layout/Channel';
 
-function App () {
+export default function App () {
   return (
-  <Layout />
+ <Layout />
 )
 }
 
-export default App
